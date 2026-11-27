@@ -8,13 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/showtimes")
 public class ShowtimeController {
+
     private final ShowtimeService showtimeService;
+
     public ShowtimeController(ShowtimeService showtimeService) {
         this.showtimeService = showtimeService;
     }
 
     @GetMapping("/{id}")
-    public Showtime getShowtime(@PathVariable Long id) {
+    public ShowtimeResponse getById(@PathVariable Long id) {
         return showtimeService.getById(id);
     }
 }
