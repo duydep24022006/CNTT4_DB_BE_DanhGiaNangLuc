@@ -53,3 +53,5 @@ CREATE TABLE bookings (
     CONSTRAINT fk_bookings_customer FOREIGN KEY (customer_id) REFERENCES customers (id),
     CONSTRAINT fk_bookings_showtime FOREIGN KEY (showtime_id) REFERENCES showtimes (id)
 );
+
+ALTER TABLE showtimes ADD CONSTRAINT ck_showtimes_seats_non_negative CHECK (available_seats >= 0);
